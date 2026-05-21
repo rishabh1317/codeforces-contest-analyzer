@@ -1,0 +1,30 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Environment
+.env
+
+# Node
+node_modules/
+
+# Build
+build/
+
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Log files
+*.log
+
+# Alembic migration cache
+backend/migration/__pycache__/
+# Alembic migration cache
