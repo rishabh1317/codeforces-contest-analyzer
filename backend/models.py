@@ -42,3 +42,8 @@ class Submission(Base):
     creation_time = Column(Integer)
     user = relationship("User", back_populates="submissions")
     problem = relationship("Problem", back_populates="submissions")
+
+class ContestCache(Base):
+    __tablename__ = "contest_cache"
+    contest_id = Column(Integer, primary_key=True, index=True)
+    total_participants = Column(Integer)

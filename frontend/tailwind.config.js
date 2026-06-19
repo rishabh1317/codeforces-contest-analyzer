@@ -7,13 +7,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#0f172a',
-        surface: '#1e293b',
-        primary: '#38bdf8',
-        secondary: '#818cf8',
-        text: '#f8fafc',
-        muted: '#94a3b8'
+        background: '#0d1117',
+        surface: '#161b22',
+        primary: '#00d4ff',
+        secondary: '#9d4edd',
+        text: '#f0f6fc',
+        muted: '#8b949e'
       },
+      fontFamily: {
+        mono: ['JetBrains Mono', 'monospace'],
+      }
     },
   },
   plugins: [],

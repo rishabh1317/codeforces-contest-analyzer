@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getAnalysis } from '../api/api';
+import { getDashboard } from '../api/api';
 
 export const useUserStats = (platform, handle) => {
   const [data, setData] = useState(null);
@@ -16,8 +16,20 @@ export const useUserStats = (platform, handle) => {
       setLoading(true);
       setError(null);
       try {
-        const result = await getAnalysis(platform, handle);
-        setData(result);
+        const dashboard = await getDashboard(handle);
+        setData({
+          ...dashboard.analysis,
+          rating: dashboard.rating,
+          max_rating: dashboard.max_rating,
+          tagAnalysis: dashboard.tag_analysis,
+          percentile: dashboard.percentile,
+          contestAnalytics: dashboard.contest_analytics,
+          problemRecommendations: dashboard.problem_recommendations,
+          ratingPrediction: dashboard.rating_prediction,
+          strongest_topics: dashboard.analysis.strongest_topics,
+          weakest_topics: dashboard.analysis.weakest_topics,
+          topic_recommendations: dashboard.analysis.topic_recommendations,
+        });
       } catch (err) {
         setError(err.response?.data?.detail || err.message || 'An error occurred');
       } finally {
